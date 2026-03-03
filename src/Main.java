@@ -20,10 +20,10 @@ public class Main {
             System.out.println("3. Calcular promedio de calificaciones");
             System.out.println("4. Mostrar estudiante con la calificación más alta");
             System.out.println("5. Salir");
-            System.out.print("Seleccione una opción: ");
-
-            int opcion = Integer.parseInt(scanner.nextLine());
-
+            
+            int opcion = leerEntero(scanner, "Selecciona una opción: "); //Aqui va la validacion con trycatch 
+            System.out.println();
+            
             // switch para llamar los métodos.
             switch (opcion) {
             case 1: agregarEstudiante(scanner);
@@ -41,6 +41,23 @@ public class Main {
             }
         }
     }
+
+	    public static int leerEntero(Scanner scanner, String mensaje) { //metodo de validacion para que unicamente haya numeros enteros
+	        int numero;
+	
+	        while (true) {
+	            System.out.print(mensaje);
+	            try {
+	                numero = scanner.nextInt();
+	                scanner.nextLine(); 
+	                return numero;
+	            } catch (Exception e) {
+	                System.out.println("Error: debes ingresar un número entero.");
+	                scanner.nextLine(); 
+            }
+        }
+    }
+    
  // Método para la opción 1 del menú.
     public static void agregarEstudiante(Scanner scanner) {
         System.out.print("Ingrese el nombre del estudiante: ");
