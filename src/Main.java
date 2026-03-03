@@ -21,7 +21,7 @@ public class Main {
             System.out.println("4. Mostrar estudiante con la calificación más alta");
             System.out.println("5. Salir");
             
-            int opcion = leerEntero(scanner, "Selecciona una opción: "); //Aqui va la validacion con trycatch 
+            int opcion = leerEntero(scanner, "Selecciona una opción: "); //Aqui va la validacion con trycatch.
             System.out.println();
             
             // switch para llamar los métodos.
