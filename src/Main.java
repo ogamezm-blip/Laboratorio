@@ -1,5 +1,3 @@
-package laboratorio;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -29,54 +27,20 @@ public class Main {
             // switch para llamar los métodos.
             switch (opcion) {
             case 1: agregarEstudiante(scanner);
+            break;
             case 2: mostrarEstudiantes();  
-            case 3:       
-            case 4: 
+            break;
+            case 3: calcularPromedio(); 
+            break;
+            case 4: mostrarEstudianteConMayorNota();
+            break;
             case 5: System.out.println("Saliendo del sistema...");
             return;
             default: System.out.println("Opción no válida. Intente de nuevo.");
-            break; 
-            
-            }
-
-            } else if (opcion == 3) {
-
-                if (calificaciones.isEmpty()) {
-                    System.out.println("No hay calificaciones registradas.");
-                } else {
-                    double suma = 0;
-
-                    for (double calificacion : calificaciones) {
-                        suma += calificacion;
-                    }
-
-                    double promedio = suma / calificaciones.size();
-                    System.out.println("El promedio de calificaciones es: " + promedio);
-                }
-
-            } else if (opcion == 4) {
-
-                if (calificaciones.isEmpty()) {
-                    System.out.println("No hay calificaciones registradas.");
-                } else {
-
-                    double maxCalificacion = calificaciones.get(0);
-                    String estudianteMax = estudiantes.get(0);
-
-                    for (int i = 1; i < calificaciones.size(); i++) {
-                        if (calificaciones.get(i) > maxCalificacion) {
-                            maxCalificacion = calificaciones.get(i);
-                            estudianteMax = estudiantes.get(i);
-                        }
-                    }
-
-                    System.out.println("El estudiante con la calificación más alta es: "
-                            + estudianteMax + " con " + maxCalificacion);
-                }
-
+            break;  
             }
         }
-    
+    }
  // Método para la opción 1 del menú.
     public static void agregarEstudiante(Scanner scanner) {
         System.out.print("Ingrese el nombre del estudiante: ");
@@ -90,7 +54,6 @@ public class Main {
 
         System.out.println("Estudiante agregado correctamente.");
     }
-
     // Método para la opción 2 del menú.
     public static void mostrarEstudiantes() {
         if (estudiantes.isEmpty()) {
@@ -103,5 +66,40 @@ public class Main {
             }
         }
     }
-    
-}
+	// Método para la opción 3
+	public static void calcularPromedio() {
+	    if (calificaciones.isEmpty()) {
+	        System.out.println("No hay calificaciones registradas.");
+	    } else {
+	        double suma = 0;
+	
+	        for (double calificacion : calificaciones) {
+	            suma += calificacion;
+	        }
+	
+	        double promedio = suma / calificaciones.size();
+	        System.out.println("El promedio de calificaciones es: " + promedio);
+	    }
+	}
+	
+	// Método para la opción 4
+	public static void mostrarEstudianteConMayorNota() {
+	    if (calificaciones.isEmpty()) {
+	        System.out.println("No hay calificaciones registradas.");
+	    } else {
+	
+	        double maxCalificacion = calificaciones.get(0);
+	        String estudianteMax = estudiantes.get(0);
+	
+	        for (int i = 1; i < calificaciones.size(); i++) {
+	            if (calificaciones.get(i) > maxCalificacion) {
+	                maxCalificacion = calificaciones.get(i);
+	                estudianteMax = estudiantes.get(i);
+	            }
+	        }
+	
+	        System.out.println("El estudiante con la calificación más alta es: "
+	                + estudianteMax + " con " + maxCalificacion);
+	    	}
+		}
+	}
